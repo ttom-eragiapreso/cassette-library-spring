@@ -1,0 +1,3 @@
+spring.application.name=cassette-library
+discogs:
+  baseUrl: https://api.discogs.com/database/search?token=HWiFdStcHwaqgBqEAoEjjvCFhQUNnZHqZFuelXuZ
