@@ -1,3 +1,15 @@
-spring.application.name=cassette-library
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/discogs-app
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+    generate-ddl: true
 discogs:
-  baseUrl: https://api.discogs.com/database/search?token=HWiFdStcHwaqgBqEAoEjjvCFhQUNnZHqZFuelXuZ
+  baseUrl: https://api.discogs.com/database/search
+#logging:
+ # level:
+  #  io.netty: DEBUG

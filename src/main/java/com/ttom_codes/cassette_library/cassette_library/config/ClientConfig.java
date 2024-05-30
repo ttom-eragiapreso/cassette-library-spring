@@ -12,6 +12,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
+import java.util.Map;
 
 @Configuration
 public class ClientConfig {
@@ -25,6 +26,7 @@ public class ClientConfig {
 
         WebClient webclient = WebClient.builder()
                 .baseUrl(discogsBaseUrl)
+                .defaultHeader("User-Agent", "Cassette-Library")
                 .exchangeStrategies(ExchangeStrategies
                         .builder()
                         .codecs(codecs -> codecs
@@ -36,8 +38,8 @@ public class ClientConfig {
 
         HttpServiceProxyFactory factory = HttpServiceProxyFactory
                 .builder()
-                /*.blockTimeout(Duration.ofSeconds(3600L))
-                .clientAdapter(WebClientAdapter.forClient(webclient))*/
+                .blockTimeout(Duration.ofSeconds(3600L))
+                .clientAdapter(WebClientAdapter.forClient(webclient))
                 .build();
 
         return factory.createClient(DiscogsClient.class);

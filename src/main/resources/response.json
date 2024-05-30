@@ -1,0 +1,58 @@
+{
+  "pagination": {
+    "page": 1,
+    "pages": 1,
+    "per_page": 50,
+    "items": 29,
+    "urls": {}
+  },
+  "results": [
+    {
+      "country": "UK",
+      "year": "2005",
+      "format": [
+        "File",
+        "AVI"
+      ],
+      "label": [
+        "Kahvi Collective"
+      ],
+      "type": "release",
+      "genre": [
+        "Electronic"
+      ],
+      "style": [
+        "IDM",
+        "Ambient"
+      ],
+      "id": 1036158,
+      "barcode": [],
+      "user_data": {
+        "in_wantlist": false,
+        "in_collection": false
+      },
+      "master_id": 0,
+      "master_url": null,
+      "uri": "/El-Bee-And-MF-ASDF/release/1036158",
+      "catno": "#v003",
+      "title": "El-Bee And MF - ASDF",
+      "thumb": "",
+      "cover_image": "https://st.discogs.com/54eda74ad6e53ba8349acc64015edcc4f17c6796/images/spacer.gif",
+      "resource_url": "https://api.discogs.com/releases/1036158",
+      "community": {
+        "want": 1,
+        "have": 4
+      },
+      "format_quantity": 0,
+      "formats": [
+        {
+          "name": "File",
+          "qty": "1",
+          "descriptions": [
+            "AVI"
+          ]
+        }
+      ]
+    }
+  ]
+}

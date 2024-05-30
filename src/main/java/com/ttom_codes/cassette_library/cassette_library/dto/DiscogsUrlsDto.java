@@ -4,14 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiscogsResponseDto {
+public class DiscogsUrlsDto {
 
-    DiscogsPaginationDto pagination;
-    List<DiscogsResultDto> results;
-
+        private String last;
+        private String next;
+        private String prev;
+        private String first;
 }
