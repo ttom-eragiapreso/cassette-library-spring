@@ -19,8 +19,13 @@ public class DiscogsApiController {
 
     @GetMapping
     public DiscogsResponseDto getDiscogs(@RequestParam(required = false, name = "release_title") String release_title, @RequestParam(required = false) String artist, @RequestParam(required = false) String barcode) {
-        ResponseEntity<DiscogsResponseDto> a = client.getRecord(release_title, artist, barcode);
-        DiscogsResponseDto response = a.getBody();
-        return response;
+        ResponseEntity<DiscogsResponseDto> response = client.getRecord(release_title, artist, barcode);
+        if(response.getStatusCode().is4xxClientError()){
+            throw new RuntimeException("Client error: " + response.getStatusCode());
+        }
+        if(response.getStatusCode().is5xxServerError()){
+            throw new RuntimeException("Server error: " + response.getStatusCode());
+        }
+        return response.getBody();
     }
 }
