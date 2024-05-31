@@ -2,6 +2,7 @@ package com.ttom_codes.cassette_library.cassette_library.controller;
 
 import com.ttom_codes.cassette_library.cassette_library.client.DiscogsClient;
 import com.ttom_codes.cassette_library.cassette_library.dto.DiscogsResponseDto;
+import com.ttom_codes.cassette_library.cassette_library.dto.DiscogsResultDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController("/api-discogs")
 @RequestMapping(value = "/api-discogs", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -25,6 +28,10 @@ public class DiscogsApiController {
         }
         if(response.getStatusCode().is5xxServerError()){
             throw new RuntimeException("Server error: " + response.getStatusCode());
+        }
+        if(response.getBody() != null && response.getBody().getResults() != null){
+            List<DiscogsResultDto> filteredResults = response.getBody().getResults().stream().filter(result -> result.getType().equalsIgnoreCase("release")).toList();
+            response.getBody().setResults(filteredResults);
         }
         return response.getBody();
     }

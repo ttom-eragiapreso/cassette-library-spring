@@ -14,6 +14,7 @@ public class DiscogsResultDto {
 
     private String country;
     private String year;
+    private String type;
     private List<String> label;
     private List<String> genre;
     private List<String> style;
